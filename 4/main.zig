@@ -8,6 +8,10 @@ const assert = std.debug.assert;
 
 const WordSearchGrid = struct { grid: []const u8, row_count: usize, col_count: usize };
 
+pub fn count_rows_colums(text: []const u8, needle: []const u8) !.{usize, usize} {
+    const row_count = std.mem.count(u8, text, "")
+}
+
 pub fn convert_to_grid(comptime text: []const u8) !WordSearchGrid {
     const row_count = comptime std.mem.count(u8, text, "\n") + 1;
     const col_count = comptime if (std.mem.indexOf(u8, text, "\n")) |c| c else 0;
